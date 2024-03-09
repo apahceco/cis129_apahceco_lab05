@@ -1,0 +1,69 @@
+'''
+#Author: Anthony Pacheco
+#Date: 03/06/2024
+#Version: 04
+#Discription: The program will calculate the total number of bottles returned for the week,
+and the amount paid out (the total returned times .10 cents). 
+
+The output of the program should include the total number of bottles returned and the total paid out.  
+
+The program will ask the user if they have more data to enter and will end the program if they do not. 
+'''
+
+# All variables 
+total_bottles = 0  # to collect total bottles collected 
+today_bottles = 0  # to collect the number of bottle collected for the day 
+total_payout = 0   # this will be use to show total payout of bottle collected 
+counter = 1        # this will be used to count the days starting one 1 for the fist day for no consufsion 
+nbm_of_days = 8    # tolal day in a week starting for 1 
+keep_going = 'y'   # this will reset the the loop to add another week of daata
+-----------------------------------------------------------------------------------------------------------------------------
+# Greeting
+
+print('Hi, welcome!!')
+print('Please enter in digit format the total number of bottles collected for each day.')
+
+-----------------------------------------------------------------------------------------------------------------------------
+print('\n')# For spcaing 
+-----------------------------------------------------------------------------------------------------------------------------
+# This starts the main program
+while keep_going.lower() == 'y':
+   counter = 1
+   total_bottles = 0
+   -----------------------------------------------------------------------------------------------------------------
+   while counter < nbm_of_days:
+      print(f"Enter number of bottles returned for day #{counter}:") # collect the number of bottle for the 1-7 days 
+      today_bottles = int(input())
+      while today_bottles < 0:   # this loop vailidate for correct number enterd                                     
+         print('Error, please enter a number greater or equal to 0.')
+         print(f"Enter number of bottles returned for day #{counter}")
+         today_bottles = int(input())
+   -----------------------------------------------------------------------------------------------------------------
+
+      total_bottles += today_bottles # this will add each input from the user to for total amount 
+      counter = counter + 1  # this will add the days up and will stop a 7
+      total_payout = total_bottles * .10  # this calculate the total payout 
+      
+   print('\n')# For spcaing
+   
+   print(f"The total number of bottles collected is: {total_bottles}") # display total bottles colected for the week 
+   
+   print('\n')# For spcaing
+   
+   print(f"The total paid out is: ${total_payout:.2f}") # display the total payout for the week 
+   
+   print('\n')# For spcaing
+-----------------------------------------------------------------------------------------------------------------
+   # this will either rest the loop or stop the loop
+   print('Do you want to enter another week\'s worth of data?\n(Enter y or n):')  
+   keep_going = input()
+   while keep_going.lower() != 'y' and keep_going.lower() != 'n':
+      print('Error, please enter y for yes or n for no.')
+      print('Do you want to enter another week\'s worth of data?\n(Enter y or n):')
+      keep_going = input()
+-----------------------------------------------------------------------------------------------------------------------------
+print('\n') # For spcaing
+
+print('Thank you, see you next time!\nHave a great day!')
+
+   
